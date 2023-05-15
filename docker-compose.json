@@ -1,29 +1,31 @@
 {
-    "version": "3.1",
-    "services": {
-      "gateway": {
-        "build": "./apiGateway",
-        "networks": {
-          "bigGamerNetwork": {}
-        }
+  "version": "3.1",
+  "services": {
+    "gateway": {
+      "build": "./apiGateway",
+      "networks": {
+        "bigGamerNetwork": {}
       },
-      "service1": {
-        "build": "./backend/service1",
-        "networks": {
-          "bigGamerNetwork": {}
-        }
-      },
-      "service2": {
-        "build": "./backend/service2",
-        "networks": {
-          "bigGamerNetwork": {}
-        }
+      "ports": [
+        "8083:8083"
+      ]
+    },
+    "service1": {
+      "build": "./backend/service1",
+      "networks": {
+        "bigGamerNetwork": {}
       }
     },
-    "networks": {
-      "bigGamerNetwork": {
-        "driver": "bridge"
+    "service2": {
+      "build": "./backend/service2",
+      "networks": {
+        "bigGamerNetwork": {}
       }
     }
+  },
+  "networks": {
+    "bigGamerNetwork": {
+      "driver": "bridge"
+    }
   }
-  
+}

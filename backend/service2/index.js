@@ -1,7 +1,7 @@
 const fastify = require('fastify')({ logger: true });
 
 fastify.get('/', async (request, reply) => {
-  reply.send({service :"service 1"});
+  reply.send({service :"service 2"});
 });
 
 // Start the server

@@ -1,18 +1,28 @@
-const fastify = require('fastify')({ logger: true });
+const fastify = require('fastify')();
+const axios = require('axios');
 
 fastify.get('/', async (request, reply) => {
-  reply.send({service :"service 1"});
+  try {
+    const response = await axios.get('http://service1:3000/data');
+    reply.send(response.data);
+  } catch (error) {
+    reply.status(500).send({ error: JSON.stringify(error) });
+  }
 });
 
-// Start the server
-const start = async () => {
+fastify.get('/data', async (request, reply) => {
   try {
-    await fastify.listen(3000);
-    fastify.log.info(`Server listening on ${fastify.server.address().port}`);
-  } catch (err) {
-    fastify.log.error(err);
+    const response = await axios.get('http://service2:3000/data');
+    reply.send(response.data);
+  } catch (error) {
+    reply.status(500).send({ error: JSON.stringify(error) });
+  }
+});
+
+fastify.listen(8083, '0.0.0.0', (err, address) => {
+  if (err) {
+    console.error(err);
     process.exit(1);
   }
-};
-
-start();
+  console.log(`Server listening on ${address}`);
+});
