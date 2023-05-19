@@ -1,18 +1,18 @@
 const fastify = require('fastify')();
 const axios = require('axios');
 
-fastify.get('/', async (request, reply) => {
+fastify.get('/service1', async (request, reply) => {
   try {
-    const response = await axios.get('http://service1:3000/data');
+    const response = await axios.get('http://service1:3000');
     reply.send(response.data);
   } catch (error) {
     reply.status(500).send({ error: JSON.stringify(error) });
   }
 });
 
-fastify.get('/data', async (request, reply) => {
+fastify.get('/service2', async (request, reply) => {
   try {
-    const response = await axios.get('http://service2:3000/data');
+    const response = await axios.get('http://service2:3000');
     reply.send(response.data);
   } catch (error) {
     reply.status(500).send({ error: JSON.stringify(error) });

@@ -1,18 +1,13 @@
-const fastify = require('fastify')({ logger: true });
+const fastify = require('fastify')();
 
 fastify.get('/', async (request, reply) => {
-  reply.send({service :"service 1"});
+  reply.send({rsp:'service1'});
 });
 
-// Start the server
-const start = async () => {
-  try {
-    await fastify.listen(3000);
-    fastify.log.info(`Server listening on ${fastify.server.address().port}`);
-  } catch (err) {
-    fastify.log.error(err);
+fastify.listen(3000, 'service1', (err, address) => {
+  if (err) {
+    console.error(err);
     process.exit(1);
   }
-};
-
-start();
+  console.log(`Server listening on ${address}`);
+});

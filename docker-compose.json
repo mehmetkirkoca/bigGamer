@@ -3,12 +3,12 @@
   "services": {
     "gateway": {
       "build": "./apiGateway",
-      "networks": {
-        "bigGamerNetwork": {}
-      },
       "ports": [
         "8083:8083"
-      ]
+      ],
+      "networks": {
+        "bigGamerNetwork": {}
+      }
     },
     "service1": {
       "build": "./backend/service1",
