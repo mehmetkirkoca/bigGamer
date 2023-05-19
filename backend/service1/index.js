@@ -9,5 +9,5 @@ fastify.listen(3000, 'service1', (err, address) => {
     console.error(err);
     process.exit(1);
   }
-  console.log(`Server listening on ${address}`);
+  console.log(`Service1 working on ${address}`);
 });

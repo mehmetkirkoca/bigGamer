@@ -19,10 +19,10 @@ fastify.get('/service2', async (request, reply) => {
   }
 });
 
-fastify.listen(8083, '0.0.0.0', (err, address) => {
+fastify.listen(8083, 'gateway', (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
   }
-  console.log(`Server listening on ${address}`);
+  console.log(`Gateway api service workin on ${address}`);
 });
