@@ -1,9 +1,9 @@
 const fastify = require('fastify')();
 const axios = require('axios');
 
-fastify.get('/service1', async (request, reply) => {
+fastify.get('/wallet', async (request, reply) => {
   try {
-    const response = await axios.get('http://service1:3000');
+    const response = await axios.get('http://wallet:3000');
     reply.send(response.data);
   } catch (error) {
     reply.status(500).send({ error: JSON.stringify(error) });

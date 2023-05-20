@@ -10,11 +10,13 @@
         "bigGamerNetwork": {}
       }
     },
-    "service1": {
-      "build": "./backend/service1",
+    "wallet": {
+      "build": "./backend/wallet",
+      "tty": true,
       "networks": {
         "bigGamerNetwork": {}
-      }
+      },
+      "volumes": ["./backend/wallet:/app/wallet"]
     },
     "service2": {
       "build": "./backend/service2",
