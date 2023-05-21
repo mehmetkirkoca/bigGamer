@@ -23,6 +23,17 @@
       "networks": {
         "bigGamerNetwork": {}
       }
+    },
+    "frontend_game_tetris": {
+      "build": "./frontend/games/tetris",
+      "tty": true,
+      "ports": [
+        "8084:3001"
+      ],
+      "networks": {
+        "bigGamerNetwork": {}
+      },
+      "volumes": ["./frontend/games/tetris:/app/frontend/games/tetris"]
     }
   },
   "networks": {

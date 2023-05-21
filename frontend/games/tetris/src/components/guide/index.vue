@@ -15,7 +15,6 @@
       </div>
     </div>
     <div class="guide left">
-      <p></p>
       <div class="space">SPACE</div>
     </div>
   </div>

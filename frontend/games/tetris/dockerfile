@@ -1,0 +1,15 @@
+FROM node:current-alpine3.17
+
+RUN apk update && apk add sudo
+
+WORKDIR /app/frontend/games/tetris
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3001
+
+# CMD [ "sudo", "npm", "run", "dev"]
