@@ -1,7 +1,7 @@
-require('dotenv').config();
 const fastify = require('fastify')();
 const Web3 = require('web3');
 
+// require('dotenv').config();
 // async function createAccount() {
 //   var web3 = new Web3(new Web3.providers.HttpProvider(process.env.WEB3_PROVIDER));
 //   return web3.eth.accounts.create();
