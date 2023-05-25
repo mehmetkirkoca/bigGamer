@@ -2,10 +2,16 @@ require('dotenv').config();
 const fastify = require('fastify')();
 const Web3 = require('web3');
 
-async function createAccount() {
-  var web3 = new Web3(new Web3.providers.HttpProvider(process.env.WEB3_PROVIDER));
-  return web3.eth.accounts.create();
-}
+// async function createAccount() {
+//   var web3 = new Web3(new Web3.providers.HttpProvider(process.env.WEB3_PROVIDER));
+//   return web3.eth.accounts.create();
+// }
+
+// fastify.get('create-eth-wallet', async (request, reply) => {
+//   let account = await createAccount();
+//   reply.send({ account });
+// });
+
 
 // todo wallets will integrate
 // Metamask
@@ -16,11 +22,6 @@ async function createAccount() {
 
 fastify.get('/', async (request, reply) => {
   reply.send({ ok:'wallet service working' });
-});
-
-fastify.get('create-eth-wallet', async (request, reply) => {
-  let account = await createAccount();
-  reply.send({ account });
 });
 
 fastify.listen(3000, 'wallet', (err, address) => {

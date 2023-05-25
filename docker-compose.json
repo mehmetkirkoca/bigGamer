@@ -3,9 +3,6 @@
   "services": {
     "gateway": {
       "build": "./apiGateway",
-      "ports": [
-        "8083:8083"
-      ],
       "networks": {
         "bigGamerNetwork": {}
       }
@@ -24,16 +21,21 @@
         "bigGamerNetwork": {}
       }
     },
-    "frontend_game_tetris": {
+    "tetris": {
       "build": "./frontend/games/tetris",
       "tty": true,
-      "ports": [
-        "8084:3001"
-      ],
       "networks": {
         "bigGamerNetwork": {}
       },
       "volumes": ["./frontend/games/tetris:/app/frontend/games/tetris"]
+    },
+    "nginx": {
+      "image": "nginx",
+      "ports": ["8083:80"],
+      "volumes": ["./nginx.conf:/etc/nginx/nginx.conf"],
+      "networks": {
+        "bigGamerNetwork": {}
+      }
     }
   },
   "networks": {

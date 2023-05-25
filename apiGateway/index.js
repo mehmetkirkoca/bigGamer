@@ -19,7 +19,7 @@ fastify.get('/service2', async (request, reply) => {
   }
 });
 
-fastify.listen(8083, 'gateway', (err, address) => {
+fastify.listen(3000, 'gateway', (err, address) => {
   if (err) {
     console.error(err);
     process.exit(1);
