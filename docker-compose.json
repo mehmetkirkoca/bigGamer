@@ -12,8 +12,7 @@
       "tty": true,
       "networks": {
         "bigGamerNetwork": {}
-      },
-      "volumes": ["./backend/wallet:/app/wallet"]
+      }
     },
     "service2": {
       "build": "./backend/service2",
@@ -28,6 +27,13 @@
         "bigGamerNetwork": {}
       },
       "volumes": ["./frontend/games/tetris:/app/frontend/games/tetris"]
+    },
+    "site": {
+      "build": "./frontend/site",
+      "tty": true,
+      "networks": {
+        "bigGamerNetwork": {}
+      }
     },
     "nginx": {
       "image": "nginx",
